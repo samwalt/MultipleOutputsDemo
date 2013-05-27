@@ -89,7 +89,7 @@ public class MultipleOutputsDemo extends Configured implements Tool {
 		public void reduce(Text key, Iterator<Text> values,
 				OutputCollector<NullWritable, Text> output, Reporter reporter)
 				throws IOException {
-			OutputCollector collector = multipleOutputs.getCollector("BIP", key
+			OutputCollector<NullWritable, Text> collector = multipleOutputs.getCollector("BIP", key
 					.toString().substring(key.getLength() - 3), reporter);
 			while (values.hasNext()) {
 				/** 使用NullWritable，丢弃掉key */
